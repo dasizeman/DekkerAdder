@@ -7,6 +7,9 @@ const int N = 500000000;
 
 int count = 0;
 
+int wantp = 0, wantq = 0;
+int turn = 1;
+
 void *increment(void*);
 
 int main()
