@@ -3,7 +3,7 @@
 #include <pthread.h>
 #include <sched.h>
 
-const int N = 500000000;
+const int N = 1000000;
 
 int count = 0;
 
@@ -37,7 +37,7 @@ int main()
         pthread_join(p, NULL);
         pthread_join(q, NULL);
 
-        if (count != N)
+        if (count != 2*N)
         {
             printf("Invalid count: %d\n", count);
             wrongs++;
@@ -54,7 +54,8 @@ int main()
 
 void *increment(void *t)
 {
-    while (count < N)
+    int i;
+    for (i = 0; i < N; i++)
     {
         int loc = count;
         loc++;
